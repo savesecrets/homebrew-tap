@@ -5,20 +5,20 @@
 class Slv < Formula
   desc ""
   homepage "https://savesecrets.org/slv"
-  version "0.1.7"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/savesecrets/slv-release/releases/download/v0.1.7/slv_darwin_arm64.zip"
-      sha256 "6236e965fa686bdfe4c016678abb3c51f8b02a54064ca6c69ff587bb26c59222"
+      url "https://github.com/savesecrets/slv-release/releases/download/v0.2.0/slv_darwin_arm64.zip"
+      sha256 "d9d052a38d79986269f1a57bb9012be1aceff2317b210bd2df087e3733b98b2f"
 
       def install
         bin.install "slv"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/savesecrets/slv-release/releases/download/v0.1.7/slv_darwin_amd64.zip"
-      sha256 "8a1413c5700bbf52197f256b756773213a0aaee9165b108c65e13536ec77c35a"
+      url "https://github.com/savesecrets/slv-release/releases/download/v0.2.0/slv_darwin_amd64.zip"
+      sha256 "cd449b16e21b871b03577ca0433270221e62890f683a559656866ce5d199893d"
 
       def install
         bin.install "slv"
@@ -27,25 +27,25 @@ class Slv < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/savesecrets/slv-release/releases/download/v0.2.0/slv_linux_amd64.zip"
+      sha256 "c79a40e4f4915566c8396868da7804e19219929345e36021863f082989185ca6"
+
+      def install
+        bin.install "slv"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/savesecrets/slv-release/releases/download/v0.1.7/slv_linux_arm.zip"
-      sha256 "75f049dc236211624c92989e804229670df1751fe7c0c8699d5b044e013a22b9"
+      url "https://github.com/savesecrets/slv-release/releases/download/v0.2.0/slv_linux_arm.zip"
+      sha256 "532a6dec49089502974fe81d5fc8f4d7d381b7ea350c2e2a46f03b81b27dc5ef"
 
       def install
         bin.install "slv"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/savesecrets/slv-release/releases/download/v0.1.7/slv_linux_arm64.zip"
-      sha256 "96a6fb612e824de68a35b1e0fba505c94a5cc1f32fe98997c635e52f4f017b9d"
-
-      def install
-        bin.install "slv"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/savesecrets/slv-release/releases/download/v0.1.7/slv_linux_amd64.zip"
-      sha256 "7c3faa351eb3c2ea3308a46c9e9875e4214f31e5ba90d625079782f363579d01"
+      url "https://github.com/savesecrets/slv-release/releases/download/v0.2.0/slv_linux_arm64.zip"
+      sha256 "152913eacb864a29906c6dac2491a424bf9ff39bd31a322425b518e2e18dcac7"
 
       def install
         bin.install "slv"
